@@ -1,0 +1,79 @@
+---
+possible project idea:
+	- friends-only uber
+		- car sharing
+	- class-chat
+	- spotify matching
+		-shows people in certain radius that listen to same music
+
+
+###spotify match-making###
+	- We will be creating an app that allows the user to interact with and get information on other accounts that have a similar taste in music in a close proximity. The app will work with the Spotify app 
+		and gps ( gps sensor )  to create an in-depth platform that gives the user the opportunity to connect with other users. The back-end functionality would be responsible for mathcing accounts
+		based on gps information and Spotify account info obtained from the Spofity api. 
+
+
+---
+
+---
+Activity Launch Modes
+
+	describes how an activity should be launched by android when called to handle an intent	from startActivity() or startActivityForResult()
+
+		standard ( default | normal | multiple instances )	new instance always created
+		single-top ( normal | multiple instances )		new instance always created iff instance not on top
+		single task ( single instance  )			iff not already created instance is launched as the root of a new task					
+		singleInstance ( single instance  )			if not already created, an instance is lauched into a new task no other activity will exist
+		
+		#look at old notes wayyy better
+
+	task
+
+		a collection of activities that accomplish a specific ( high level task )
+			own activity backstack
+
+
+	Handling intents
+	
+		intent used to launch an activity can be retrieved using getIntent()
+		
+		an activity that is already running receives new intents through onNewIntent()
+			if singleTop and on top of task, singleTask and singleInstance will receive intents through this method
+
+onCreate
+onStart
+onResume
+onPause
+onStop
+onDestroy
+
+---
+
+---
+Styles and Themes
+
+	add a style element as a child of a resource element in an xml file under ex./  /res/values/styles.xml
+
+	you can add the optional parent attribute to specify a style that you would like to extend ( dot notation ) you can overwrite or inherit 
+
+	themes apply to entire window not views
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

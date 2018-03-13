@@ -1,0 +1,63 @@
+---
+
+Notifications:
+
+	managed by notification service external to our applications
+
+	create a notification by using NotificationBuilder
+		uses builder pattern
+	must contain small icon 
+	title
+	text 
+
+	once notification is created and you have hold of the object show it by using getSystemService(NOTIFICATION_SERVICE);
+	
+	ex./
+		Notification n = new Notification.Builder().*setstuff*.build();
+		NotificationManager  nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+		nm.notify(id:123,n);
+
+
+	responding to events in notifications
+		
+		use pending intent to allow opening external ( external to the notification service that owns the notification interaction ) activity
+
+		pending intent != intent
+
+		pending intents house real intents, you can then give that pending intent to an external application to perform an action on behalf of your application
+		eliminating any security concerns. The pending intent gives the external application the ability to execute that intent and only that intent
+
+		ex./
+			PendingIntent pi = PendingIntent.getActivity(context: this, requestCode: 0,intent,flags:);		 
+
+
+		if activity is already running, processing data before the notifications creation will not run. to solve this simply make a function and call from onNewIntent()
+
+		ex./
+			private void processIntent(Intent in){};
+			protected void onNewIntent(intent) { processIntent(intent)};
+
+
+Processes and priority:
+
+	android can kill processes to reclaim memory
+
+	processes are killed based on priority
+		first - last
+			empty
+			background
+			service
+			visible
+			foreground
+
+	foreground services are services that tell android to give them high priority and treat as if at foreground
+
+		must display notification ( tell user you are running )
+			
+			must be dismissed within code
+
+		startForeground();
+			
+---
+
+

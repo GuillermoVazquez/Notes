@@ -1,0 +1,64 @@
+---
+
+permissions revisited:
+
+	all applications and system resources are seperated
+
+		a lot of access control
+
+	kernel enforces access control since Android layer sits on top of it
+
+	permissions allow apps to communicate with eachother and kernel
+
+		exception will be thrown if not done properly
+
+	android utilizes normal and dangerous permissions
+
+	android now uses runtime permission models
+
+		for dangerous only
+
+	dangerous permission are for things that threaten the users privacy
+
+	Steps:
+
+		determine if needed
+
+		declare request permission in manifest <uses-permission>
+
+			normal permission are always granted
+
+		request dangerous permission at runtime
+
+	how to check a permission
+
+		Activity.checkSelfPermission(String permission)
+
+	request at runtime
+
+		Activity.requestPermissions(String[])
+
+	request critical permissions upfront
+
+		others later in context
+
+	Filters
+
+		Filters allow application distribution platforms to prevent
+		installation of an app based on the availability of a feature
+		on the device
+	
+		uses-feature
+
+		if a permission is requested for a non-critical function
+
+			manually set its uses-feature required tag = "false"
+
+	permission group assigns the permission to a group defined by
+	<permission-group>
+
+		for your own app
+
+	permission protection level
+
+		signature or signature/system

@@ -1,0 +1,38 @@
+---
+
+Google Messaging Platform
+
+FCM ( firebase cloud messaging )
+
+	part of google play services
+
+	app -> fcm -> user
+
+	send-to-sync
+
+		alert device new info ready through fmc or xmpp      device fetches data from server
+
+	how to:
+
+		Registration:
+		register wit fcm and receive id
+
+		send id to app server
+
+		Sending message:
+		send id and message to fcm via http or xmpp
+
+		fcm delivers message to app
+
+
+Coding implementation:
+
+	go to firebase console:
+
+		add project
+
+		
+
+	assistant -> Firebase -> cloudmessaging
+
+	

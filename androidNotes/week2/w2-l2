@@ -1,0 +1,98 @@
+---
+
+System Services:
+
+	you receive a handle to a service through a call to Context.getSystemService(service)
+
+	
+App Widgets
+
+	mini applications that run inside another app
+	
+	can update themselves automatically
+	
+	new - > widget - > appWidget
+
+	auto update limited tp 30 mins
+
+	your widget can be added multiple times
+
+	once widget is pasted to a screen know that onUpdate() is fired 
+
+		so manipulate the widget in updateAppWidget()
+
+	only a subset of views can be used for a widget
+
+		RemoteView objects lets you manipulate these views
+
+	AppWidgetProvider is a BroadcastReceiver
+
+		in the manifest there is a receiver for the widget  that solely looks for appwidgetupdates
+
+			so programmatically manualy update the widget make intent, make AppWidgetManager, get ids, broadcast  
+
+				ex./  Intent intent = new Intent();
+				      AppWidgetManager awm = (AppWidgetManager) getSystemService(SystemService);
+				      int[] appWidgetIds = awm.getAppWidgetIds(new ComponentName(MainActivity.this));
+				      intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS,appWidgetIds);
+				      -------------------------------------------------------------------------- 
+				      sendBroadcast(intent);
+
+	to automatically programmatically update the widget use a PendingIntet
+
+		ex./
+			PendingIntent pi = PendingIntent.getBroadcast(MainActivity.this,);
+			AlarmManager am = (AlarmManager) getSystemService(ALARM_SERVICE);
+			am.setRepeating(AlarmManager.rtc);
+
+
+Broadcast
+
+	systemwide anouncement delivered as an intent
+
+	originates from system or app
+
+Broadcast Receiver
+
+	all run in undefined order
+
+	responds to a broadcast
+
+	should do little work
+
+	can be created in another component ( affected by parent component lifecycle )
+
+	can receive a broadcast from any application, use permissions to control who is able to send broadcasts to the particular receiver
+
+	register:
+
+		<receiver ... </receiver>
+
+	child of <application>
+
+	can contain <intent-filter>
+
+Local Broadcast
+
+	resides only in application
+
+	LocalBroadCastManager class
+
+	very efficient
+
+receivers only valid for the execution of onReceive()
+
+to not receive any broadcasts from any application set android:exported="false"
+
+	
+
+	
+	
+	
+
+
+
+
+
+
+

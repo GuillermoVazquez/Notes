@@ -1,0 +1,59 @@
+---
+
+nfc
+
+	is a communication protocol
+
+	very shortrange wireless communication protocol
+
+	very limited bandwidth
+
+	transfers tags
+
+		read/write tags
+	
+	android wraps nfc implementation with/in intent system
+
+Android Process for NFC
+
+	Android powered device discovers NFC tag
+
+	The developer codes an activity to take tag
+
+		Android helps with this selection by parsing NFC tag to figure out uri 
+		Android also helps by encapsulating the uri and payload into an intent
+		Android then starts an activity based on the intent
+
+			the developer must make an activity to take this intent
+NFC Tags != NFC Beam
+
+Android Beam uses NFC
+
+	Beam uri callback == file transfer
+
+	ndef message callback is a very structured message delivery system
+
+how-to:
+
+	needs permission
+
+	create intent
+
+		Intent intent = new Intent (this,MainActivity.class);
+
+	create pending intent
+
+		PendingIntent pi = getActivity(this,0,intent,0);
+
+	*whenever activity active: receive all nfc content tags*
+
+		onResume(){   NFcAdapter.getDefaultAdapter(this).enableForgroundDispatch(this,pi,null,null);}
+
+		onPause(){    '	' ' ' ' '' ' ' ' ' ' ' ' ' ' ' ' .disableForgroundDispatch();}
+
+		onNewIntent(){if...... NdefpMeassage message = intent.getParcelableArrayExtra(NFcAdapter.EXTRA...)[0])} where intent will be delivered
+
+			intent will hold reference to tag, you use to write to tag
+
+		
+

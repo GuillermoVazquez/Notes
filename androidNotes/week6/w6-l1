@@ -1,0 +1,89 @@
+---
+
+Location Services with Mapping 
+
+
+Mapping data may require third-party service
+
+	-heavy stuff so deff
+
+Google Maps
+
+	Common classes:
+
+	Latlng
+
+		object to store coordinate info
+
+	MarkerOptions
+
+		places a marker on the map
+
+	CameraUpdate/CameraUpdateFactory
+
+		controls the current view of the map
+
+	
+
+	What you need:
+
+		Google Account
+
+			API Key
+
+			Used to grant monitor access
+
+		Google Play Services (Maps)
+
+	Dont go straigt to third-party service provider
+
+		dont allow your application users to access the service provider/ you cant control their behavior
+
+			some jag sends 3 thousand requests in an hour
+
+		always provide application service Provider server between user and thrid party servers
+
+	
+Google Maps Steps:
+
+	- go to Google API console
+
+	- GET KEY
+
+	- Create a new project
+
+	- copy and paste key into your android project manifest as      meta-data
+
+		android name = geo.api_key
+
+	main:
+
+		MapView
+		GoogleMap
+		LocationManager
+		LocationListener
+
+		onCreate()
+		mapview.onCreate(savedInstance)
+		onDestroy()
+		mapview.onDestroy()
+		...
+
+			mapview is needy with regard to info consumption and state changes
+
+				do the above to keep it updated!!!
+
+		implement onMapReady(Google googleMap)
+			this.googleMap = googleMap
+		
+
+		mapView.getMapAsync(this)
+
+		locationListener = new ... {
+
+			onLocationChanged(Location location)
+				LatLng latlng = new LatLng (location.getLat(), location.getLong)
+				CameraUpdate cu = CameraUpdateFactory.newLatLng(latlng)
+				googleMap.animateCamera(cu)
+
+	

@@ -1,0 +1,84 @@
+---
+
+Content Providers
+
+	Manage access to structured data
+
+	facilitates client/server access
+
+	App -> contentResolver -> contentProvider -> [data]
+
+	Native Content Providers
+
+		Contacts
+
+		Calendar
+
+		Dictionary
+
+		Media
+
+
+Accessing a provider
+	
+	query the user dictionary 
+
+	mcurser = getContentResolver().query(
+	uri,columnstoreturnforeachrow,selectionclause,selectionArgs,SortOrder);
+		getContentResolver is the object you call on to query data
+
+		it returns a curser object that is a pointer to data set 
+				
+				starts at [-1]
+
+		you then call things on this cursor to get or set things
+
+	you must get permission for content provider in manifest
+
+	in the code always check if you have persmission
+		
+		if you dont, ask for it in the code
+
+		
+	
+Content URI
+
+	identifies content in a provider
+
+		authority (database name)
+			com.example.<appname>.provider
+
+		pointer to table or file
+
+		id for a specific row
+
+
+
+Creating a provider
+
+	design raw storage for your data
+
+		file data
+
+		structured data
+
+	implement contentProvider
+
+		must implement methods for doing stuffff with data
+
+			query() insert() update() delete() getType() onCreate()
+
+	define authority string, contentURIs, and column names
+
+	set up permissions, intent filters, data and flags
+
+
+
+
+---
+	
+
+
+	
+
+	

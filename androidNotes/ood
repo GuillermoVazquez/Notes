@@ -1,0 +1,320 @@
+Object-Oriented Design
+
+	Analysis -> Design -> Programming
+
+	
+Review:
+
+	Objects
+
+		have their own state
+
+		can be rather abstract entities ( bank account )
+
+		have behaviors
+
+		instantiation of a class
+
+	Class
+
+		Blueprint for objects
+
+		"what" something is
+
+		have names, attributes, and behavior
+
+		ex./ class = dog | object = "Spot"
+
+	Abstraction
+
+		the important aspects of something
+
+		without specifics
+
+		abstracting a concept so that you get to its fundamentals
+
+	Encapsulation
+
+		keeping/protecting the inner-workings of a class/object
+
+		hiding everything of a class/object except for the things that need to be exposed
+
+		results in reducing dependencies
+
+	Inheritance
+
+		Defining a class based on another class
+
+			ex./ mammal class -> dog class  ( dog inherits mammal attributes/behavior ) 
+
+		Sub class that inherits has ALL attributes/behaviors super class has
+
+	Polymorphism
+
+		inherit when useful, overwrite when needed
+
+		let's us do the thing needed using overwrite
+
+
+
+Object-Oriented Analysis and Design
+
+		1. ) Gather requirements
+			what will the app do ( functionalities )
+			performance requirements
+			support requirements
+			security requirements
+			.
+			.
+			.
+			functional and non-functional
+			FURPS+
+				Functional reqs
+				Usability reqs
+				Reliability reqs
+				Performance reqs
+				Suportabilities reqs
+				+ Design/Implementation/Interface/Physical reqs
+			be agile
+	
+		2. ) Describe App			
+		3. ) Identify the main objects
+		4. ) Describe interactions 
+		5. ) Create a class diagram
+
+UML ( unified modeling language )
+
+	Class 
+
+		name
+		attributes
+		behaviors ( methods )
+
+	Support system for your design process
+
+
+Use Cases
+
+	Title that describes the goal ( ex. create new page )
+	Actor
+	Scenario ( list of steps )
+
+Use case diagram
+
+	diagram of multiple use cases to see how they interact
+
+		each use case need formal use case write-uo
+
+	use stick figures to represent actors
+
+	elipses around use case titles
+
+	box around all use cases ( boundries of your system )
+
+	lines between actors and use cases
+
+	non-human actor represented with box
+
+	actors - system secondary - actors
+
+User Story
+
+	point of view of user
+
+	what they want to do and why the want to do it
+
+	very short 
+
+	on index cards
+
+	format:
+
+		as a ( type of user )... i want...so that
+
+	you do this for every possible user
+
+
+Domain Modeling ( modeling your app )
+
+	Conceptual model of object-oriented construction of our application
+
+Identifying the Classes
+
+	highlight all nouns in uses cases
+
+		they may be possible classes
+
+	after/ get rid of duplicates
+
+	minimize list
+
+	make diagram of this
+
+	simple block columns
+
+Identifying Class Relationships
+
+	draw lines amongst the classes ( blocks )
+
+	short notes on lines to describe the relationships
+
+	multiplicity ( 1   * )
+
+Identifying Class Responsibilities
+
+	what will become behavior ( methods )
+
+	look for verbs in use cases
+
+	an object needs to responsible for itself
+		ex./ order provides order number
+
+	write responsibilities under the object block
+
+	Actors dont have A ton of responsibilites
+
+CRC cards
+
+	Class Responsibility Collaboration
+
+	index cards
+
+	each card represents one class
+
+	use regular english for methods
+
+	move related crc cards together
+
+
+Creating Class Diagram
+
+	Each class is a block with Name Attributes Behavior
+
+	Name = name
+
+	Attributes = variables ex./ var: integer
+
+		- before attribute/method = private to class
+		+ = public
+
+	behavior = method names with input and return type ex./ getName(int): String
+
+
+Exploring Object Lifetime
+
+	Instantiation
+
+		Constructor is a special method that will instantiate an object
+
+	Constructors
+
+		makes sure that any variables are delt with when an object is instantiated
+
+			reside within a class that would be created
+
+	
+	
+
+		constructors have same name as class
+
+		constructors "overload"
+
+		must be public and have same name as class
+
+	Destructors
+
+		called when an object is being deleted
+
+		use for releasing data
+
+Static or Shared Members
+
+	public static var;
+
+	Public Share var; VB.net
+
+	static vars are can be changed but changing it will redefine all instances of variable
+
+	a static method can only access static variables
+
+	in uml static attributes/methods are underlined
+
+	static vars/methods belong to the class not the object
+
+
+Inheritance and Composition
+
+	in UML, inheritance is shown with the open arrow, the class points to it's super class
+
+	overriding is when a method from a super class is changed within the sub class
+
+	Dont look for inheritance
+
+	everything in java inherits from the Object class
+
+		
+Using Inheritance
+
+	java    public class Dog extends Mammal{....
+
+	call super method by super.method();
+
+
+Using Abstract Classes
+	
+	a class ( usually a super class ) that is never instantiated
+
+	exists only so that it can be inherited
+
+	class that can be instantiated as a "concrete" class
+
+Using Interfaces
+
+	list of methods
+	
+	methods dont have definition
+
+	no functionality
+
+	java:   interface class{...
+
+	a class can implement an interface
+
+	java  Myclass implements class{...
+
+	you must implement all classes in interface that you implement
+
+	in UML you use same class box but with name in <interface> name
+
+	class that implements interface must have arrow pointing at interface box with dotted line
+
+	"Program to an interface"
+
+	
+Using aggregation and Composition
+
+	
+	"has a" relationship
+
+	in UML uses unfilled diamond with line
+
+	ex./ University<> "straightline" Students      aggregation
+			#               *
+
+	ex./ Document "filled in diamont,straightline" Page   Composition
+                    #				      #...*
+		    
+
+	
+
+		
+
+	
+
+		
+
+
+
+
+
+		

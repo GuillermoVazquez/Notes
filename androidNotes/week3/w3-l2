@@ -1,0 +1,127 @@
+
+activity -> CursorLoader -> ContentResolver -> ContentProvider -> Data storage
+
+
+
+---
+
+Content Providers and Resolvers
+	
+	How to access data in a content provider:
+
+		use content resolver in your applications context to access provider 
+
+		activity/fragment -> CursorLoader -> contentResolver -> contentProvider
+
+	Content URI is a URI that identifies data in a provider 
+
+	to read from provider your appliction needs read access permission 
+	
+	native android providers 
+		files
+		sqlite
+		network
+
+	creating a provider
+
+		implement ContentProvider
+
+		specify authority
+		
+		translate URI to data model
+
+		specify permissions
+
+	declaring content provider
+
+		<provider ... </provider>
+
+	Requesting data
+
+		request permission
+
+		specify uri w/ "content://" scheme
+
+	other -> contentProvider
+
+	implement sqlite database
+
+		implement SQLiteOpenHelper	
+
+	Cursor 
+
+		an interface that provides random r/w access to a result set
+
+		begins at index -1
+
+		permission = r/w
+
+	Grant URI permissions
+
+		at runtime by FLAG-GRANT-PERMISSION_URI_PERMISSION
+
+		specified to the uri in the intent
+
+Requesting permissions
+	
+	Providers application makes the permission needed
+
+	if none specified,no access granted to anyother application
+
+	declare requested permission in manifest <uses-permission>
+
+	request permission:
+
+		if permission not granted ( Activity.checkSelfPermission(String permission) ) 
+
+		request permission ( Activity.requestPermissions(String[] permission , int requestCode)
+
+	request critical permissions first, normal in context
+		
+		if normal set required=false in manifest for <uses-permission>
+
+	you can use intent instead of permission
+
+	assign permission to group <permission-group>
+
+	permission attributes
+
+		name(code) label icon
+
+	protection levels
+
+		signature
+		
+		signatureOrSystem
+
+Filters
+
+	filters allow application distribution platforms to prevent installation of an app based on the availability of a feature on the device
+
+	Search manifest filter elements 
+
+
+
+Creating content provider:
+
+	1.) Design raw storage
+
+	2.) Define content uri, authority name, columm names      authority = android-internal name
+
+	3.) implement contentProvider class
+		query insert update delete getType onCreate
+		query() must return a cursor object
+		insert() adds a new row, row based database, new row == new item. using ContentValues argument. should return content uri for the new row ( row's_id to table content uri using appendedID()
+		delete() can set row with delete flag
+		onCreate() 
+			
+			android call onCreate when it starts up the provider
+
+	4.) you can use intents to access the contentProvider. you can call an intent that starts an activity in contentproviders application to retrieve and aid in displaying data
+
+
+Cursor
+
+	an interface that provides a random r/w access to the result set returned by a database query
+
+	a interface that returns a 2-d table of any database.

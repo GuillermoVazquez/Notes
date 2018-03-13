@@ -1,0 +1,95 @@
+recall: onNewIntent() recieves intents and processes the information delivered by the intent
+	
+	when the activity is already running onCreate will not recieve the intent so onNewIntent() is used
+
+
+---
+
+GPS
+
+	satellite navigation
+
+	50 bits per second
+
+	provide satellite location and timestamp
+		
+		use math and stuff to triangulate position of device receiving this stuff
+
+	needs 4 satellites for full location
+
+
+	uses latitude and longitude 
+
+
+	
+systems 
+	
+	GLONAS Russia
+
+	GALILEO	EU
+
+	BEIDOU	China
+
+
+Location services in Android
+
+	android.location - low level
+
+	Google location Services - high level
+
+		cannot cach maps
+
+		must be live
+	
+		cannot provide offline maps
+
+	gps sources
+
+		gps, wifi, cell sites
+
+	left -> right
+	
+		accurate -> less accurate
+
+		slow -> fast
+
+	
+	Geo-fence
+
+		virtaul circle 
+
+	
+
+Code:
+
+
+<uses-permission name = " fine-location" or "coarse location" >   coarse location for wifi or cell towers
+
+locationManager lm = context.getSystemServices(LOCATION_SERVICE);
+
+	getLastKnownLocation(provider)   returns null sometimes
+
+	requestLocationUpdates()
+
+locationListener()
+
+	currentLocation = location
+
+	location.getLatitude
+
+onResume()
+
+	lm.requestLocationUpdates(provider, minimum time lapse for update, distance required for update,location listener) do same for network_provider and passive_provider
+
+
+activities can be killed and recreated, to avoid memory leaks lm.remove updates in opposirt of requestLocationUpdates location ex onResume() -> onPause()
+
+also check for permissions
+
+
+
+
+
+
+
+

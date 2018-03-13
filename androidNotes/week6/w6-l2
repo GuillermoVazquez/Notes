@@ -1,0 +1,90 @@
+---
+
+Cloud Communication
+
+	extensible messaging and presence protocol ( XMPP )
+
+	Cloud based messaging   ( ex./ Firebase )
+
+	Polling
+
+		Pull:
+
+		Client initiated check for new data from source
+
+		usually time-based
+
+		referred to as client-pull model
+	
+		not real time
+
+		consumes excessive resources
+
+		exponential backoff
+		
+			interval between requests increases as request returns null, a yes resets interval
+
+		easy to implement
+
+		gets data using established protocols
+
+			dont have control of this, non-mutable 
+
+		
+		Push:
+
+		server tells client new data is available
+
+		requires a path to client
+
+			difficult with firewalls and NAT
+
+		client still needs to establish connection and must maintain connection
+
+			servers cant establish connection
+
+	XMPP (push model)
+
+		open protocol
+
+		near real time communication
+
+		route messages between multiple clients
+
+		xml based
+
+		every entity is a client 
+
+		messages can be queued 
+
+	on android
+
+		no native support
+
+		depletes battery
+
+			cuz you have to maintain connection 	
+
+		requires XMPP server and integration with application server
+
+	reduce complexity through shared pipe to XMPP server
+
+
+USE CLOUD MESSAGING~~~~~~~~~~
+
+	~~~~~USE FIREBASE~~~~~
+
+	part of Google Play Services
+
+	all applications that use fb share a single connection 
+
+	messages can be deliverd to apps not running
+
+	JSON based
+
+	messages stored up to 4 weeks ( or set expiration of delivery )
+
+	most client set up and config is automated
+
+	
+
