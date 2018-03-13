@@ -31,8 +31,40 @@ Coding implementation:
 
 		add project
 
+		download google services json file
+	
+		add file to project ( drag and drop to app folder )
 		
 
 	assistant -> Firebase -> cloudmessaging
-
+		( detailed how-to )
 	
+
+	create class ( must extend firbaseinstanceidservice
+
+		override ontokenRefresh()
+
+			String token to send something to instance of application
+
+	for message handling implement messaging service extends firebasemessaginservice
+
+		add to manifest becasue it is a service
+
+		onMessageReceived
+
+			create intent for action to listen for
+
+			intent.put(remoteMessage.getdata().get("payload")
+
+			LocalBroadcastManager.....
+
+		in mainactivity create broadcast receiver 
+
+			onReceive() //extract message
+
+		in onCreate... onResume()
+
+				
+
+
+Firebase gives front-end for app-wide notifications on Firebase Console
