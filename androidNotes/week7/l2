@@ -1,0 +1,19 @@
+---
+
+FCM
+
+data -> app server -> FCM with device ID -> device with ID
+
+	client can generate data
+
+Code implementation:
+
+	firebase console -> create project -> download google.services.json -> drop in app folder 
+
+	include all libraries ( specified in firebase console )
+
+	add firbase service extends firbaseinstanceidservice
+
+		ontokenrefresh()
+
+			boolean register = sendtokentoserver(firebaseinstanceid.getinstace().gettoken(); ( to register )

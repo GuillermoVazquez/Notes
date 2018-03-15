@@ -15,7 +15,7 @@ FCM ( firebase cloud messaging )
 	how to:
 
 		Registration:
-		register wit fcm and receive id
+		register with fcm and receive id
 
 		send id to app server
 
