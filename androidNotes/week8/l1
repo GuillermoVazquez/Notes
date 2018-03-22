@@ -1,0 +1,79 @@
+---
+
+Bluetooth
+
+Android provides APIs to:
+
+	scan for other bluetooth devices
+
+	query for paired bluetooth devices
+
+	establish RFCOMM channels
+
+	Connect to other devices through service discovery
+
+Permissions
+
+	android.permission.BLUETOOTH (data exchange of devices)
+
+	android.permission.BLUETOOTH_ADMIN (discover and establish connections)
+
+Bluetooth can also be used to determine a location
+
+	through connections to personal devices or beacons  
+
+to cope with that
+
+	you must also request for FINE or COURSE location permission
+
+Android Bluetooth profiles
+
+	headset
+	a2dp (advanced audio distribution profile)
+	heatlthdevices
+
+	
+
+code implementation (find devices):
+
+BluetoothAdapter blue;
+
+oncreate
+
+	ArrayList<BluetoothDevices> devices;
+	
+	blue = BluetoothAdapater.getDefaultAdapter(); //check if available
+
+		else startActivityForResult(new INtent(BluetoothAdapter.Action_Request_enable,123)
+
+	devices = new ArrayList<>(blue.getBondedDevices())
+	
+code implementation (r/w to devices): look online
+
+Bluetooth low energy
+
+maintain connections
+
+apart of 4.o
+
+api 18
+
+Bluetooth uses
+
+	tethering
+
+	device-to-device
+
+	device/peripheral tracking
+
+	health 
+
+	beacons
+
+Bluetooth Mesh
+
+	current tech allows multiple connections through client-server star topology
+
+	bluetooth 5 introduces mesh topology
+
+	
